@@ -1,3 +1,5 @@
+import math
+
 # Class from StockOverflow 
 class bcolors:
     WARNING = '\033[93m'
@@ -35,8 +37,12 @@ def validate_annual_data(values):
         
     return True
 
-def calculate_annual_allowance(value):
-   print("hola")
+def calculate_annual_allowance(values):
+    """
+    Calculates yearly allowance based on yearly salary; 80% of gross salary minus taxes of 70%
+    """
+    print(values)
+
 
 data_str = get_income_data()
 calculate_annual_allowance(data_str)
