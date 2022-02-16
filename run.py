@@ -10,22 +10,34 @@ def get_income_data():
     """
     Collects the gross annual salary from user
     """
-    print("Please enter your annual gross salary (5-7 digits only)\nExample: 450000\n")
-    data_str = input("Enter your salary here:\n")
-    validate_data(data_str)
+    while True:
+        print("Please enter your annual gross salary (5-7 digits only)\nExample: 450000\n")
+        data_str = input("Enter your salary here:\n")
+        
+        if validate_annual_data(data_str):
+            break
+    return data_str
+            
+   
+    
 
-def validate_data(values): 
+def validate_annual_data(values): 
     """
     Checks if data (salary) has been inserted as values and throws an error message if it's wrongly input.
     """  
     try:
         annual_salary = int(values)
         print(f"You entered {annual_salary}")
-    except ValueError:
-       print(bcolors.WARNING + "You entered the salary incorrectly. Please enter a valid number\n" + bcolors.ENDC)
-       get_income_data()
         
+    except ValueError:
+        print(bcolors.WARNING + "You entered the salary incorrectly. Please enter a valid number\n" + bcolors.ENDC)
+        return False
+        
+    return True
 
-def calculate_annual_allowance():
-    
-get_income_data()
+def calculate_annual_allowance(value):
+   print("hola")
+
+data_str = get_income_data()
+calculate_annual_allowance(data_str)
+#calculate_annual_allowance()
