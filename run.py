@@ -1,3 +1,8 @@
+# Class from StockOverflow 
+class bcolors:
+    WARNING = '\033[93m'
+    ENDC = '\033[0m'
+
 print("\nWelcome to your Parent's Allowance Calculator. \nYou can use this calculator to find out about what your annual pay when on maternity-/paternity leave will be.")
 print("The allowance is based on 80% of your gross salary and a 30% tax deduction on top of that.\n")
 
@@ -17,8 +22,10 @@ def validate_data(values):
         annual_salary = int(values)
         print(f"You entered {annual_salary}")
     except ValueError:
-       print("You entered the salary incorrectly. Please enter a valid number")
+       print(bcolors.WARNING + "You entered the salary incorrectly. Please enter a valid number\n" + bcolors.ENDC)
+       get_income_data()
         
 
-
+def calculate_annual_allowance():
+    
 get_income_data()
