@@ -12,14 +12,12 @@ def get_income_data():
 def validate_data(values): 
     """
     Checks if data (salary) has been inserted as values and throws an error message if it's wrongly input.
-    """
-    
-    try: 
-        return int(values)
-        print(f"You entered {values}")
-
+    """  
+    try:
+        annual_salary = int(values)
+        print(f"You entered {annual_salary}")
     except ValueError:
-        print("You entered the salary incorrectly. Please enter a valid number")
+       print("You entered the salary incorrectly. Please enter a valid number")
         
 
 
