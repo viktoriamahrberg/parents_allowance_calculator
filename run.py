@@ -12,7 +12,7 @@ def get_income_data():
     Collects the gross annual salary from user
     """
     while True:
-        print("Please enter your annual gross salary (5-7 digits only)")
+        print("Please enter your annual gross salary")
         print("Example: 450000\n")
         data_str = input("Enter your salary here:\n")
 
@@ -26,7 +26,7 @@ def validate_annual_data(values):
     Checks if data (salary) has been inserted as values and throws an error message if it's wrongly input.
     """
     try:
-        annual_salary = int(values)
+        annual_salary = int(values) 
         print(f"You entered {annual_salary}")
 
     except ValueError:
@@ -44,11 +44,12 @@ def calculate_annual_allowance(values):
     """
 
 
+
 def main():
     print("\nWelcome to your Parent's Allowance Calculator. \nYou can use this calculator to find out about what your annual pay when on maternity-/paternity leave will be.")
     print("The allowance is based on 80% of your gross salary and a 30% tax deduction on top of that.\n")
     wage = get_income_data()
-    print(type(wage))
+    calculate_annual_allowance(wage)
     # validated_wage = validate_annual_data(wage)
 
     # calc_amount = calculate_annual_allowance(validated_wage)
