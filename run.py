@@ -60,8 +60,33 @@ def get_monthly_days():
     validate_days_data(monthly_days)
 
 
-def validate_days_data(values):
-    print("we are here")
+def validate_days_data(monthly_days):
+    """
+    Checks if entered days are equal or less to a months 31 days
+    """
+    int_days = int(monthly_days)
+    try:
+        if int_days <= 31:
+            print(f"You wish to take {int_days} days of leave")
+
+        else:
+            raise ValueError(
+                f"You entered {int_days} days,"
+            )
+        return int_days
+
+    except ValueError as e:
+        print(WARNING+f"The number you entered is invalid: {e} please try again."+ENDC)
+        get_monthly_days()
+
+
+def calculate_monthly_allowance(int_days, annual_allowance):
+    """
+    Takes the yearly allowance and divide with 365 days
+    to get the allowance per day and multiply with the users requested
+    days
+    """
+    print("we are here") 
 
 
 def main():
@@ -73,11 +98,10 @@ def main():
     print("The allowance is based on 80% of your gross salary and a 30% tax deduction on top of that.\n")
     wage = get_income_data()
     annual_allowance = calculate_annual_allowance(wage)
-    get_monthly_days()
+    int_days = get_monthly_days()
+    calculate_monthly_allowance(int_days, annual_allowance) 
 
-    #annual allowance
-
-
+    # annual allowance
 
 
 main()
