@@ -31,7 +31,7 @@ def validate_annual_data(values):
 
     except ValueError:
         print(WARNING+"You entered the salary incorrectly.")
-        print("Please enter a valid number\n" + ENDC)
+        print("Please enter a valid number\n"+ENDC)
         return False
 
     return annual_salary
@@ -44,7 +44,24 @@ def calculate_annual_allowance(wage):
     """
 
     annual_allowance = (wage * 0.8 * 0.7)
-    print(OKCYAN+f"Your total annual allowance is: {annual_allowance}" + ENDC)
+    print(OKCYAN+f"Your total annual allowance would be: {round(annual_allowance)}"+ENDC)
+    # Enter function from StockOverflow 
+    # https://stackoverflow.com/questions/42077811/how-do-i-have-a-press-enter-to-continue-feature-in-python
+    input('Press Enter to continue..')
+    return annual_allowance
+
+
+def get_monthly_days():
+    """
+    Collects the total days per month the user wishes to be on leave
+    """
+    print("\nPlease enter the amount of days per month you wish to be on leave for and thereby also get allowance for\n")
+    monthly_days = input("Enter your amount of days here:\n")
+    validate_days_data(monthly_days)
+
+
+def validate_days_data(values):
+    print("we are here")
 
 
 def main():
@@ -55,11 +72,12 @@ def main():
     print("You can use this calculator to find out about what your annual pay when on maternity-/paternity leave will be.")
     print("The allowance is based on 80% of your gross salary and a 30% tax deduction on top of that.\n")
     wage = get_income_data()
-    calculate_annual_allowance(wage)
-    # validated_wage = validate_annual_data(wage)
+    annual_allowance = calculate_annual_allowance(wage)
+    get_monthly_days()
 
-    # calc_amount = calculate_annual_allowance(validated_wage)
-    # print(type(validated_wage))
+    #annual allowance
+
+
 
 
 main()
