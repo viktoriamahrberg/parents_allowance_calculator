@@ -67,10 +67,7 @@ def get_monthly_days():
             break
 
     return int_days
-
-        
-        
-        
+     
 
 def validate_days_data(monthly_days):
     """
@@ -81,7 +78,7 @@ def validate_days_data(monthly_days):
         if int_days > 31:
             raise ValueError(
                 f"You entered {int_days} days,"
-            )
+                )
     except ValueError as e:
         print(WARNING+f"The number you entered is invalid:{e}")
         print("please try again."+ENDC)
@@ -90,26 +87,31 @@ def validate_days_data(monthly_days):
     return int_days
 
 
-def validate_month_data():
+def enter_month():
     """
     Checks whether the entered month is a valid month
     """
-    try:
-        month = ("January", "February", "March", "April", "May",
-        "June", "July", "August", "September", "October",
-        "November", "December")
-        chosen_month = str(input("Enter the month to base calculations on\n"))
-        if not chosen_month in month:
-            raise ValueError(
+    months_available = ("january", "february", "march", "april", "may",
+    "june", "july", "august", "september", "october", "november", "december")
+    while True: 
+        chosen_month = str(input("Enter the month to base calculations on\n"))     
+        
+        entered_month = False 
+
+        if chosen_month in months_available:
+            entered_month = True
+            break
+
+        else:
+            raise TypeError(
                 f"You entered {chosen_month},"
                 )
-    except TypeError as e:
-        print(WARNING+f"The data you entered is invalid.")
-        print("Please try again."+ENDC)
-        return False 
+            print(WARNING+"The data you entered is invalid.")
+            print("Please try again."+ENDC)
+
 
     return chosen_month      
-    
+
 
 def calculate_monthly_allowance(int_days, annual_allowance, chosen_month):
     """
@@ -138,7 +140,7 @@ def main():
     wage = get_income_data()
     annual_allowance = calculate_annual_allowance(wage)
     int_days = get_monthly_days()
-    chosen_month = validate_month_data()
+    chosen_month = enter_month()
     calculate_monthly_allowance(int_days, annual_allowance, chosen_month)
 
 
