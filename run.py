@@ -44,8 +44,9 @@ def calculate_annual_allowance(wage):
     """
 
     annual_allowance = (wage * 0.8 * 0.7)
-    print(OKCYAN+f"Your total annual allowance would be: {round(annual_allowance)}"+ENDC)
-    # Enter function from StockOverflow 
+    print(OKCYAN+"Your total annual allowance would be:")
+    print(f"{round(annual_allowance)} SEK"+ENDC)
+    # Enter function from StockOverflow
     # https://stackoverflow.com/questions/42077811/how-do-i-have-a-press-enter-to-continue-feature-in-python
     input('Press Enter to continue..')
     return annual_allowance
@@ -56,16 +57,17 @@ def get_monthly_days():
     Collects the total days per month the user wishes to be on leave
     """
     while True:
-        print("\nPlease enter the amount of days per month you wish to be on leave for and thereby also get allowance for\n")
+        print("\nPlease enter the amount of days per month you wish")
+        print("to be on leave for and thereby also get allowance for\n")
         monthly_days = input("Enter your amount of days here:\n")
         int_days = validate_days_data(monthly_days)
 
         if validate_days_data(int_days):
             print(f"You wish to take {int_days} days of leave")
-            break            
+            break
 
     return int_days
-    
+
 
 def validate_days_data(monthly_days):
     """
@@ -78,10 +80,12 @@ def validate_days_data(monthly_days):
                 f"You entered {int_days} days,"
             )
     except ValueError as e:
-        print(WARNING+f"The number you entered is invalid: {e} please try again."+ENDC)
+        print(WARNING+f"The number you entered is invalid:{e}")
+        print("please try again."+ENDC)
         return False
 
     return int_days
+
 
 def calculate_monthly_allowance(int_days, annual_allowance):
     """
@@ -89,9 +93,12 @@ def calculate_monthly_allowance(int_days, annual_allowance):
     to get the allowance per day and multiply with the users requested
     days
     """
-    print("we are here") 
-    print(int_days)
-    print(annual_allowance)
+
+    daily_allowance = annual_allowance / 365
+    monthly_result = daily_allowance * int_days
+
+    print(OKCYAN+"Based on the numbers you have provided you will recieve")
+    print(f"{round(monthly_result)} SEK/month during your parental leave"+ENDC)
 
 
 def main():
@@ -99,12 +106,15 @@ def main():
     Run the program functions
     """
     print("\nWelcome to your Parent's Allowance Calculator.\n")
-    print("You can use this calculator to find out about what your annual pay when on maternity-/paternity leave will be.")
-    print("The allowance is based on 80% of your gross salary and a 30% tax deduction on top of that.\n")
+    print("You can use this calculator to find out about what your")
+    print("annual pay when on maternity-/paternity leave will be.")
+    print("The allowance is based on 80% of your gross salary and a")
+    print("30% tax deduction on top of that.\n")
+    print("Please note the calculations are done in Swedish Kronor (SEK)")
     wage = get_income_data()
     annual_allowance = calculate_annual_allowance(wage)
     int_days = get_monthly_days()
-    calculate_monthly_allowance(int_days, annual_allowance) 
+    calculate_monthly_allowance(int_days, annual_allowance)
 
 
 main()
