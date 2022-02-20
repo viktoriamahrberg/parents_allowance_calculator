@@ -4,6 +4,8 @@ Color error message feature from StockOverflow
 WARNING = '\033[93m'
 ENDC = '\033[0m'
 OKCYAN = '\033[96m'
+OKBLUE = '\033[94m'
+    
 
 
 def get_income_data():
@@ -67,7 +69,7 @@ def get_monthly_days():
             break
 
     return int_days
-     
+
 
 def validate_days_data(monthly_days):
     """
@@ -91,29 +93,28 @@ def enter_month():
     """
     Checks whether the entered month is a valid month
     """
-    months_available = ("january", "february", "march", "april", "may",
-    "june", "july", "august", "september", "october", "november", "december")
-    while True: 
-        chosen_month = str(input("Enter the month to base calculations on\n"))     
-        
-        entered_month = False 
+    months_available = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december")
 
-        if chosen_month in months_available:
-            entered_month = True
+    while True:
+        chosen_month_str = input("Enter the month to base calculations on\n")
+        input_month = str(chosen_month_str)
+
+        input_data = False
+
+        if input_month in months_available:
+            input_data = True
+            print("True")
             break
 
         else:
             raise TypeError(
-                f"You entered {chosen_month},"
+                f"You entered {input_month},"
                 )
-            print(WARNING+"The data you entered is invalid.")
-            print("Please try again."+ENDC)
+
+    return input_month
 
 
-    return chosen_month      
-
-
-def calculate_monthly_allowance(int_days, annual_allowance, chosen_month):
+def calculate_monthly_allowance(int_days, annual_allowance, input_month):
     """
     Takes the yearly allowance and divide with 365 days
     to get the allowance per day and multiply with the users requested
@@ -124,7 +125,8 @@ def calculate_monthly_allowance(int_days, annual_allowance, chosen_month):
     monthly_result = daily_allowance * int_days
 
     print(OKCYAN+"Based on the numbers you have provided you will recieve")
-    print(f"{round(monthly_result)} SEK/month in the month of {chosen_month}"+ENDC)
+    print(f"{round(monthly_result)} SEK/month in the month of {input_month}"+ENDC)
+
 
 
 def main():
@@ -140,8 +142,8 @@ def main():
     wage = get_income_data()
     annual_allowance = calculate_annual_allowance(wage)
     int_days = get_monthly_days()
-    chosen_month = enter_month()
-    calculate_monthly_allowance(int_days, annual_allowance, chosen_month)
+    input_month = enter_month()
+    calculate_monthly_allowance(int_days, annual_allowance, input_month)
 
 
 main()
