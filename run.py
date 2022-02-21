@@ -69,6 +69,7 @@ def validate_days_data(monthly_days):
             raise ValueError(
                 f"You entered {int_days} days,"
                 )
+
     except ValueError as e:
         print(WARNING+f"The number you entered is invalid: {e}")
         print("please try again."+ENDC)
@@ -111,8 +112,8 @@ def calculate_monthly_allowance(int_days, annual_allowance, input_month):
     monthly_result = daily_allowance * int_days
 
     print(OKCYAN+"Based on the numbers you have provided you will recieve")
-    print(f"{round(monthly_result)} SEK/month in the month of")
-    print(f"{input_month.capitalize()}"+ENDC)
+    print(f"{round(monthly_result)} SEK/month in the")
+    print(f"month of {input_month.capitalize()}"+ENDC)
 
 
 def main():
