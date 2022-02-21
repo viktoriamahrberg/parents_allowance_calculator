@@ -1,3 +1,6 @@
+""" Sleep function imported to delay print statement
+in the end of program
+"""
 from time import sleep
 
 # Print color text feature from StockOverflow
@@ -93,8 +96,10 @@ def enter_month():
     """
     Checks whether the entered month is a valid month
     """
-    months_available = ("january", "february", "march", "april", "may", "june",
-    "july", "august", "september", "october", "november", "december")
+    months_available = (
+        "january", "february", "march", "april", "may", "june",
+        "july", "august", "september", "october", "november", "december"
+        )
 
     while True:
         chosen_month_str = input("Enter the month to base calculations on\n")
