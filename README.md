@@ -7,7 +7,7 @@ A calculator generating your monthly parental allowance
 
 In Sweden, amongst other countries, a parental allowance is calculated based on your annual salary. 
 
-**Background**
+**Background:**
 As a soon-to-be parent you may wonder how to financially structure your time on leave, in order to take care of your newborn. 
 Sweden offers 420 days to be equally split between the parents but the allowance is based on each individual's income. When you plan your maternity or paternity leave you may want to know how much your on-leave income will be.
 
@@ -17,7 +17,7 @@ This leaves you with your annual allowance.
 Depending on how many days a month you want to take out, the calculations will give you your decided monthly allowance. 
 
 ## Flowshart
-![Flowshart](/readme_content/Parent_allowance_flowshart.jpeg)
+![Flowshart](/readme_content/parent_allowance_flowshart.png)
 
 ## User Experience
 
@@ -28,7 +28,7 @@ Depending on how many days a month you want to take out, the calculations will g
 
 ## Features
 
-## Input data
+### Input data
 
 Input data features in terms of:
 1. Input yearly gross salary
@@ -43,8 +43,8 @@ Input data features in terms of:
 
 ### Calculations
 
-* calculate_annual_allowance fucntion is calculating the total yearly allowance 
-* calculate_monthly_allowance function is calculating the requested monthly allowance
+* Calculates the total yearly allowance 
+* Calculates the monthly allowance based on users input days
 
 ### Features to be implemented
 Connect an API in form of Google Sheets which:
@@ -77,19 +77,18 @@ Connect an API in form of Google Sheets which:
 
 I had issues with the while loop in get_income_data function and the data then being sent to validation_function, however I did not manage to get the return value be passed on to the calculation function in the very end of the program. 
 
-![get_data and validating_data function](/readme_content/validate_data function.png)
+![Functions](/readme_content/validate_data function.png)
 
-I at first solved this with a controversal function called ![Walrus Operator](https://realpython.com/python-walrus-operator/) which in short assigns a value to a variable and then returns that value. However this code was not passed the validation test in PEP8, so I wanted to re-write it.
+I at first solved this with a controversal function called [Walrus Operator](https://realpython.com/python-walrus-operator/) which in short assigns a value to a variable and then returns that value and was introduced to me by a Slack member. This code however was not passed the validation test in PEP8, so I wanted to re-write it.
 ![Walrus in commit](/readme_content/walrus_commit.png)
 
-I went through the Love Sandwiches codes, went back several times to the While Loop / Try-Except and If statements on CI,asked in Slack and researched online. 
+I went through the Love Sandwiches codes, went back several times to the While Loop / Try-Except and If statements on CI, asked the Slack community and researched online. 
 I tried to troubleshoot to see where the value gone missing:
 ![None_value](/readme_content/none_value.png)
 ![Error message](/readme_content/error_message.png)
 
-and finally I came to the conclusion to merge the two functions and write everything in get_data_function. Perhaps one would say that was a short-cut but I managed to solve the problem before anyone in Slack had responded. 
-![Solutin](/readme_content/solution.png)
-
+Finally I came to the conclusion to merge the two functions and write everything in get_data_function. Perhaps one would say that was a short-cut but I managed to solve the problem before anyone in Slack had responded. 
+![Solution](/readme_content/solution.png)
 
 
 
