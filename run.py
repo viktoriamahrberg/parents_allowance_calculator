@@ -92,7 +92,6 @@ def enter_month():
         input_month = str.lower(chosen_month_str)
 
         if input_month in months_available:
-            print("True")
             break
 
         else:

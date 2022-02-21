@@ -32,7 +32,13 @@ Depending on how many days a month you want to take out, the calculations will g
 
 Input data features in terms of:
 1. Input yearly gross salary
+
+![Input salary](/readme_content/input_yearly_income.png)
+
 2. Input days per month to be on-leave
+
+![Input days](readme_content/input_days.png)
+
 3. Input month to base calculations on
 
 ### Calculations
@@ -79,8 +85,10 @@ I at first solved this with a controversal function called ![Walrus Operator](ht
 I went through the Love Sandwiches codes, went back several times to the While Loop / Try-Except and If statements on CI,asked in Slack and researched online. 
 I tried to troubleshoot to see where the value gone missing:
 ![None_value](/readme_content/none_value.png)
+![Error message](/readme_content/error_message.png)
 
 and finally I came to the conclusion to merge the two functions and write everything in get_data_function. Perhaps one would say that was a short-cut but I managed to solve the problem before anyone in Slack had responded. 
+![Solutin](/readme_content/solution.png)
 
 
 
