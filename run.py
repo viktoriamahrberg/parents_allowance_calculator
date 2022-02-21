@@ -20,9 +20,11 @@ def get_income_data():
         print("Example: 450000\n")
         data_str = input("Enter your salary here:\n")
 
-        if (data_str := validate_annual_data(data_str)):
+        if validate_annual_data(data_str):
+            print("data is valid")
             break
-    return data_str
+        return data_str
+        print(annual_salary)
 
 
 def validate_annual_data(values):
@@ -38,17 +40,18 @@ def validate_annual_data(values):
         print(WARNING+"You entered the salary incorrectly.")
         print("Please enter a valid number\n"+ENDC)
         return False
-
+    
+    print(type(annual_salary))
     return annual_salary
 
 
-def calculate_annual_allowance(wage):
+def calculate_annual_allowance(annual_salary):
     """
     Calculates yearly allowance based on yearly salary;
     80% of gross salary minus taxes of 70%
     """
-
-    annual_allowance = (wage * 0.8 * 0.7)
+    
+    annual_allowance = (annual_salary * 0.8 * 0.7)
     print(OKCYAN+"Your total annual allowance would be:")
     print(f"{round(annual_allowance)} SEK"+ENDC)
     # Enter function from StockOverflow
@@ -140,8 +143,8 @@ def main():
     print("The allowance is based on 80% of your gross salary and a")
     print("30% tax deduction on top of that.\n")
     print("Please note the calculations are done in Swedish Kronor (SEK)")
-    wage = get_income_data()
-    annual_allowance = calculate_annual_allowance(wage)
+    get_annual_salary = get_income_data()
+    annual_allowance = calculate_annual_allowance(get_annual_salary)
     int_days = get_monthly_days()
     input_month = enter_month()
     calculate_monthly_allowance(int_days, annual_allowance, input_month)
