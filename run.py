@@ -101,16 +101,12 @@ def enter_month():
         input_month = str.lower(chosen_month_str)
 
         if input_month in months_available:
-            True
             print("True")
             break
 
         else:
-            raise TypeError(
-                f"You entered {input_month},"
-                )
-        
-
+            print(WARNING+"The month you entered")
+            print("is invalid, please try again."+ENDC)
     return input_month
 
 
@@ -125,8 +121,8 @@ def calculate_monthly_allowance(int_days, annual_allowance, input_month):
     monthly_result = daily_allowance * int_days
 
     print(OKCYAN+"Based on the numbers you have provided you will recieve")
-    print(f"{round(monthly_result)} SEK/month in the month of {input_month.capitalize()}"+ENDC)
-
+    print(f"{round(monthly_result)} SEK/month in the month of")
+    print(f"{input_month.capitalize()}"+ENDC)
 
 
 def main():
