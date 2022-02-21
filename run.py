@@ -22,19 +22,17 @@ def get_income_data():
     try:
         annual_wage = int(data_str)
         return annual_wage
-        
     except ValueError:
-            print(WARNING+"You entered the salary incorrectly.")
-            print("Please enter a valid number\n"+ENDC)
-            return(get_income_data())
-          
+        print(WARNING+"You entered the salary incorrectly.")
+        print("Please enter a valid number\n"+ENDC)
+        get_income_data()
+
 
 def calculate_annual_allowance(annual_wage):
     """
     Calculates yearly allowance based on yearly salary;
     80% of gross salary minus taxes of 70%
     """
-    
     annual_allowance = (annual_wage * 0.8 * 0.7)
     print(OKCYAN+"Your total annual allowance would be:")
     print(f"{round(annual_allowance)} SEK"+ENDC)
