@@ -1,11 +1,11 @@
-"""
-Color error message feature from StockOverflow
-"""
+from time import sleep
+
+# Print color text feature from StockOverflow
+# https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal
 WARNING = '\033[93m'
 ENDC = '\033[0m'
 OKCYAN = '\033[96m'
 OKBLUE = '\033[94m'
-    
 
 
 def get_income_data():
@@ -65,7 +65,7 @@ def get_monthly_days():
         int_days = validate_days_data(monthly_days)
 
         if validate_days_data(int_days):
-            print(f"You wish to take {int_days} days of leave")
+            print(f"You wish to take {int_days} days of leave.")
             break
 
     return int_days
@@ -82,7 +82,7 @@ def validate_days_data(monthly_days):
                 f"You entered {int_days} days,"
                 )
     except ValueError as e:
-        print(WARNING+f"The number you entered is invalid:{e}")
+        print(WARNING+f"The number you entered is invalid: {e}")
         print("please try again."+ENDC)
         return False
 
@@ -93,16 +93,15 @@ def enter_month():
     """
     Checks whether the entered month is a valid month
     """
-    months_available = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december")
+    months_available = ("january", "february", "march", "april", "may", "june",
+    "july", "august", "september", "october", "november", "december")
 
     while True:
         chosen_month_str = input("Enter the month to base calculations on\n")
-        input_month = str(chosen_month_str)
-
-        input_data = False
+        input_month = str.lower(chosen_month_str)
 
         if input_month in months_available:
-            input_data = True
+            True
             print("True")
             break
 
@@ -110,6 +109,7 @@ def enter_month():
             raise TypeError(
                 f"You entered {input_month},"
                 )
+        
 
     return input_month
 
@@ -125,7 +125,7 @@ def calculate_monthly_allowance(int_days, annual_allowance, input_month):
     monthly_result = daily_allowance * int_days
 
     print(OKCYAN+"Based on the numbers you have provided you will recieve")
-    print(f"{round(monthly_result)} SEK/month in the month of {input_month}"+ENDC)
+    print(f"{round(monthly_result)} SEK/month in the month of {input_month.capitalize()}"+ENDC)
 
 
 
@@ -144,6 +144,8 @@ def main():
     int_days = get_monthly_days()
     input_month = enter_month()
     calculate_monthly_allowance(int_days, annual_allowance, input_month)
+    sleep(2.5)
+    print("Thanks for using the Parental Allowance Calculator")
 
 
 main()
