@@ -15,17 +15,18 @@ def get_income_data():
     """
     Collects the gross annual salary from user
     """
-    print("Please enter your annual gross salary")
-    print("Example: 450000\n")
-    data_str = input("Enter your salary here:\n")
+    while True:
+        try:
+            print("Please enter your annual gross salary")
+            print("Example: 450000\n")
+            data_str = input("Enter your salary here:\n")
+            annual_wage = int(data_str)
+            break
+        except ValueError:
+            print(WARNING+"You entered the salary incorrectly.")
+            print("Please enter a valid number\n"+ENDC)
+    return annual_wage
 
-    try:
-        annual_wage = int(data_str)
-        return annual_wage
-    except ValueError:
-        print(WARNING+"You entered the salary incorrectly.")
-        print("Please enter a valid number\n"+ENDC)
-        get_income_data()
 
 
 def calculate_annual_allowance(annual_wage):
@@ -69,7 +70,6 @@ def validate_days_data(monthly_days):
             raise ValueError(
                 f"You entered {int_days} days,"
                 )
-
     except ValueError as e:
         print(WARNING+f"The number you entered is invalid: {e}")
         print("please try again."+ENDC)
@@ -130,7 +130,7 @@ def main():
     int_days = get_monthly_days()
     input_month = enter_month()
     calculate_monthly_allowance(int_days, annual_allowance, input_month)
-    sleep(2.5)
+    sleep(2)
     print("Thanks for using the Parental Allowance Calculator")
 
 

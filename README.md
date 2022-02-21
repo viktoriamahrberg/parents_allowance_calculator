@@ -91,7 +91,6 @@ Finally I came to the conclusion to merge the two functions and write everything
 ![Solution](/readme_content/solution.png)
 
 
-
 ## Deployment
 
 I followed below steps when deploying my project to Heroku, based on Code Institute instructions:
