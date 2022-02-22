@@ -28,7 +28,6 @@ def get_income_data():
     return annual_wage
 
 
-
 def calculate_annual_allowance(annual_wage):
     """
     Calculates yearly allowance based on yearly salary;
@@ -50,32 +49,20 @@ def get_monthly_days():
     while True:
         print("\nPlease enter the amount of days per month you wish")
         print("to be on leave for and thereby also get allowance for\n")
-        monthly_days = input("Enter your amount of days here:\n")
-        int_days = validate_days_data(monthly_days)
-
-        if validate_days_data(int_days):
-            print(f"You wish to take {int_days} days of leave.")
+        try:
+            monthly_days = int(input("Enter your amount of days here:\n"))
+        except ValueError:
+            print(WARNING+"You entered invalid data,")
+            print("please try again."+ENDC)
+            continue
+        if monthly_days < 31:
+            print(f"You wish you take {monthly_days} days off-leave.\n")
             break
+        elif monthly_days > 31:
+            print(WARNING+"The number you entered is invalid."+ENDC)
+            continue
 
-    return int_days
-
-
-def validate_days_data(monthly_days):
-    """
-    Checks if entered days are equal or less to a months 31 days
-    """
-    int_days = int(monthly_days)
-    try:
-        if int_days > 31:
-            raise ValueError(
-                f"You entered {int_days} days,"
-                )
-    except ValueError as e:
-        print(WARNING+f"The number you entered is invalid: {e}")
-        print("please try again."+ENDC)
-        return False
-
-    return int_days
+    return monthly_days
 
 
 def enter_month():
@@ -88,7 +75,7 @@ def enter_month():
         )
 
     while True:
-        chosen_month_str = input("Enter the month to base calculations on\n")
+        chosen_month_str = input("Enter the month to base calculations on:\n")
         input_month = str.lower(chosen_month_str)
 
         if input_month in months_available:
@@ -100,7 +87,7 @@ def enter_month():
     return input_month
 
 
-def calculate_monthly_allowance(int_days, annual_allowance, input_month):
+def calculate_monthly_allowance(monthly_days, annual_allowance, input_month):
     """
     Takes the yearly allowance and divide with 365 days
     to get the allowance per day and multiply with the users requested
@@ -108,7 +95,7 @@ def calculate_monthly_allowance(int_days, annual_allowance, input_month):
     """
 
     daily_allowance = annual_allowance / 365
-    monthly_result = daily_allowance * int_days
+    monthly_result = daily_allowance * monthly_days
 
     print(OKCYAN+"Based on the numbers you have provided you will recieve")
     print(f"{round(monthly_result)} SEK/month in the")
@@ -127,9 +114,9 @@ def main():
     print("Please note the calculations are done in Swedish Kronor (SEK)")
     annual_wage = get_income_data()
     annual_allowance = calculate_annual_allowance(annual_wage)
-    int_days = get_monthly_days()
+    monthly_days = get_monthly_days()
     input_month = enter_month()
-    calculate_monthly_allowance(int_days, annual_allowance, input_month)
+    calculate_monthly_allowance(monthly_days, annual_allowance, input_month)
     sleep(2)
     print("Thanks for using the Parental Allowance Calculator")
 
