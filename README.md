@@ -43,6 +43,8 @@ Input data features in terms of:
 
 3. Input month to base calculations on
 
+![Input month](/readme_content/input_month.png)
+
 ### Calculations
 
 * Calculates the total yearly allowance 
