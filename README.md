@@ -18,8 +18,8 @@ Depending on how many days a month you want to take out, the calculations will g
 
 The live link can be found here - [Parent's Allowance Calculator](http://parents-allowance-calculation.herokuapp.com/)
 
-## Flowshart
-![Flowshart](/readme_content/parent_allowance_flowshart.png)
+## Flowchart
+![Flowchart](/readme_content/parent_allowance_flowchart.png)
 
 ## User Experience
 
@@ -65,6 +65,9 @@ Have a print or download your results option in the end of the program for user 
 ### Frameworks, Deployment, Libraries
 * [GitHub](https://github.com/)
 * [Gitpod](https://gitpod.io/)
+
+### Other
+* [Lucidchart](https://www.lucidchart.com/pages/)
 
 ## Testing
 
