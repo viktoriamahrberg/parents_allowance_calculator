@@ -51,6 +51,8 @@ Connect an API in form of Google Sheets which:
 * Collects the users data for the business owner
 * Analyse the users data for statistics
 
+Have a print or download your results option in the end of the program for user to hold on to.
+
 ## Technologies Used
 
 ### Languages
@@ -75,9 +77,10 @@ Connect an API in form of Google Sheets which:
 
 ## Issues found during development
 
+1.
 I had issues with the while loop in get_income_data function and the data then being sent to validation_function, however I did not manage to get the return value be passed on to the calculation function in the very end of the program. 
 
-![Functions](/readme_content/validate_data function.png)
+![Functions](/readme_content/validate_data_function.png)
 
 I at first solved this with a controversal function called [Walrus Operator](https://realpython.com/python-walrus-operator/) which in short assigns a value to a variable and then returns that value and was introduced to me by a Slack member. This code however was not passed the validation test in PEP8, so I wanted to re-write it.
 ![Walrus in commit](/readme_content/walrus_commit.png)
@@ -89,6 +92,16 @@ I tried to troubleshoot to see where the value gone missing:
 
 Finally I came to the conclusion to merge the two functions and write everything in get_data_function. Perhaps one would say that was a short-cut but I managed to solve the problem before anyone in Slack had responded. 
 ![Solution](/readme_content/solution.png)
+
+2.
+A Slack-member in peer-code-review found an error that I had missed, when entering a non-digit character.
+![Error message](/readme_content/type_error.png)
+
+He gave suggestion to try and insert an empty string before asking for input from user to clear out the user's input after each wrong run. I tried this back and fourth but could not make it work in my instance. 
+![Empty string loop](/readme_content/empty_string_loop.png)
+I then found the link on [StackOverflow](https://stackoverflow.com/questions/23294658/asking-the-user-for-input-until-they-give-a-valid-response) about asking user's input until valid response and took inspiration from there and tried to run the program until I got it right.
+
+![Function result](/readme_content/function_result.png)
 
 
 ## Deployment
@@ -119,11 +132,14 @@ In HEROKU after creating account:
 
 ## Credits
 
+Special thank you to Dave Horrocks for his support in Slack and the Slack community that volontereed and gave thorough feedback on my Peer Code Review post. 
+
 Below resources were used to improve my skills and find assistance:
 * [StackOverflow](https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal) - Print Colored text
 
-* [Stackoverflow](https://stackoverflow.com/questions/3944655/testing-user-input-against-a-list-in-python) - Test user input against a list (my months)
+* [StackOverflow](https://stackoverflow.com/questions/3944655/testing-user-input-against-a-list-in-python) - Test user input against a list (my months)
 
+* [StackOverflow](https://stackoverflow.com/questions/23294658/asking-the-user-for-input-until-they-give-a-valid-response) - Asking user for input
 * [Code Institute - Love Sandwiches](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/blob/master/02-accessing-user-data/02-validating-our-data-part-1/run.py) -
 While Loop for input days 
 

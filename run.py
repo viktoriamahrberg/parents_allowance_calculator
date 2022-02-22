@@ -56,7 +56,7 @@ def get_monthly_days():
             print("please try again."+ENDC)
             continue
         if monthly_days < 31:
-            print(f"You wish you take {monthly_days} days off-leave.\n")
+            print(f"You wish you take {monthly_days} days.\n")
             break
         elif monthly_days > 31:
             print(WARNING+"The number you entered is invalid."+ENDC)
@@ -73,7 +73,6 @@ def enter_month():
         "january", "february", "march", "april", "may", "june",
         "july", "august", "september", "october", "november", "december"
         )
-
     while True:
         chosen_month_str = input("Enter the month to base calculations on:\n")
         input_month = str.lower(chosen_month_str)
