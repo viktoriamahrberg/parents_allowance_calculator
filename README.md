@@ -87,22 +87,29 @@ I had issues with the while loop in get_income_data function and the data then b
 ![Functions](/readme_content/validate_data_function.png)
 
 I at first solved this with a controversal function called [Walrus Operator](https://realpython.com/python-walrus-operator/) which in short assigns a value to a variable and then returns that value and was introduced to me by a Slack member. This code however was not passed the validation test in PEP8, so I wanted to re-write it.
+
 ![Walrus in commit](/readme_content/walrus_commit.png)
 
 I went through the Love Sandwiches codes, went back several times to the While Loop / Try-Except and If statements on CI, asked the Slack community and researched online. 
 I tried to troubleshoot to see where the value gone missing:
+
 ![None_value](/readme_content/none_value.png)
+
 ![Error message](/readme_content/error_message.png)
 
-Finally I came to the conclusion to merge the two functions and write everything in get_data_function. Perhaps one would say that was a short-cut but I managed to solve the problem before anyone in Slack had responded. 
+Finally I came to the conclusion to merge the two functions and write everything in get_data_function. Perhaps one would say that was a short-cut but I managed to solve the problem by myself. 
+
 ![Solution](/readme_content/solution.png)
 
 2.
 A Slack-member in peer-code-review found an error that I had missed, when entering a non-digit character.
+
 ![Error message](/readme_content/type_error.png)
 
 He gave suggestion to try and insert an empty string before asking for input from user to clear out the user's input after each wrong run. I tried this back and fourth but could not make it work in my instance. 
+
 ![Empty string loop](/readme_content/empty_string_loop.png)
+
 I then found the link on [StackOverflow](https://stackoverflow.com/questions/23294658/asking-the-user-for-input-until-they-give-a-valid-response) about asking user's input until valid response and took inspiration from there and tried to run the program until I got it right.
 
 ![Function result](/readme_content/function_result.png)
