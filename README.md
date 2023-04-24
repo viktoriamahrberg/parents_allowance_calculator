@@ -16,7 +16,7 @@ This leaves you with your annual allowance.
 
 Depending on how many days a month you want to take out, the calculations will give you your decided monthly allowance. 
 
-The live link can be found here - [Parent's Allowance Calculator](http://parents-allowance-calculation.herokuapp.com/)
+The live link can be found here - [Parent's Allowance Calculator](https://parents-allowance-calculator.onrender.com/)
 
 ## Flowchart
 ![Flowchart](/readme_content/parent_allowance_flowchart.png)
